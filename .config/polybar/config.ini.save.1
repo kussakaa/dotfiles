@@ -1,0 +1,75 @@
+[color]
+bg = #000000
+fg = #
+
+[bar/main]
+width = 100%
+height = 16pt
+background = ${color.bg}
+foreground = ${color.fg}
+separator = |
+font-0 = "Terminus:size=14;1"
+tray-position = left
+modules-left = xwindow
+modules-center = xworkspaces
+modules-right = cpu memory fs pa xkeyboard date
+
+[module/xwindow]
+type = internal/xwindow
+format = |<label>
+label-padding = 2pt
+label-maxlen = 60
+
+[module/xworkspaces]
+type = internal/xworkspaces
+label-active = %name%
+label-active-padding = 2pt
+label-occupied = *
+label-occupied-padding = 2pt
+label-urgent = !
+label-urgent-padding = 2pt
+label-empty = ·
+label-empty-padding = 2pt
+
+[module/date]
+type = internal/date
+interval = 1.0
+label = %time%
+label-padding = 2pt
+time = %H:%M
+time-alt = %Y.%m.%d %H:%M:%S
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+format = <label-layout><label-indicator>
+format-padding = 2pt
+label-layout = %layout%
+label-indicator-on-capslock-padding-left = 2pt
+label-indicator-on-capslock = CAPS
+
+[module/pa]
+type = internal/pulseaudio
+use-ui-max = false
+interval = 5
+click-right = pavucontrol
+format-volume-padding = 2pt
+label-volume = out:%percentage%
+label-muted = out:OFF
+
+[module/fs]
+type = internal/fs
+mount-0 = /
+format-mounted = <label-mounted>
+label-mounted = %mountpoint%:%percentage_used%%
+label-mounted-padding = 2pt
+
+[module/memory]
+type = internal/memory
+label = ram:%percentage_used%%
+label-padding = 2pt
+
+[module/cpu]
+type = internal/cpu
+label = cpu:%percentage%%
+label-padding = 2pt
