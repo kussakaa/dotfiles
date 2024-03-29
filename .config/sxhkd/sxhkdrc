@@ -4,7 +4,7 @@ super + Return
 super + d
 	dmenu_run -l 10 -fn "Terminus-12" -nb "#000000" -nf "#cccccc" -sb "#cccccc" -sf "#000000"
 
-super + shift + {q,r}
+super + {F10, F9}
 	bspc {quit,wm -r}
 
 super + {_,shift + }c
